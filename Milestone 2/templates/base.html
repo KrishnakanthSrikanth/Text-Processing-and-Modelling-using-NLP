@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}" type="text/css" media="all" />
+<script src="{{ url_for('static', filename='jquery-3.6.0.js') }}"></script>
+</head>
+
+<body>
+
+    <div id="shell" style='height: auto'>
+        <div id="header">
+          <h1 class="title"><a href="/"> Jobs4U </a></h1>
+          <div class="top-bar">
+            <div class="links">    {% block links %}       {% endblock %}  </div>
+            <div class="cl">&nbsp;</div>
+            <div id="search">
+              <form action="/search" method="POST">
+                <label for="search-string">SEARCH</label>
+                <div class="fields">
+                  <input type="text" name="searchword" class="field" placeholder="Type here.." />
+                  <input type="submit" name="search" value="" class="submit" />
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+        <div id="navigation">
+          <ul>
+            <li><a href="/accounting_finance">Accounting & Finance</a></li>
+            <li><a href="/engineering">Engineering</a></li>
+            <li><a href="/healthcare_nursing">Healthcare & Nursing</a></li>
+            <li><a href="/sales">Sales</a></li>
+            <li><a href="/about">About</a></li>
+          </ul>
+          <div class="cl">&nbsp;</div>
+        </div>
+
+        {% block body %}
+        {% endblock %}
+
+        <div id="footer" style='height:auto'>
+          <p class="lf">Copyright &copy; 2023 <a href="#">Jobs4U</a> - All Rights Reserved</p>
+          <p class="rf">Design by <a href="http://chocotemplates.com/">ChocoTemplates.com</a></p>
+          <div style="clear:both;"></div>
+        </div>
+      </div>
+
+{% block script %}
+{% endblock %}
+
+</body>
+</html>
